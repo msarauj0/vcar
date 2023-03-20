@@ -5,14 +5,11 @@ from .forms import AluguelForm,ClienteForm,CarForm
 # Create your views here.
 
 def index(request):
-    car = Car.objects.all()[:5]
-    return render(request, 'index.html', {"Carro":car})
+    return render(request, 'index.html')
 
-def lista_car(request):
-    car = Car.objects.all()
-    
-    
-    return render(request, 'car/listar.html',{"Carro":car} )
+def listar_carros(request):
+    carros = Car.objects.all()
+    return render(request, "car/listar.html",{"carros":carros})
 
 def detalhar_car(request, pk):
     car = Car.objects.get(pk=pk)
